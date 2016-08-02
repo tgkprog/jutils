@@ -1,11 +1,12 @@
 package org.s2n.ddt.util.threads;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.bean.UtlConf;
 
 public class PoolWatcher implements Runnable{
-	private static final Logger logger = Logger.getLogger(PoolWatcher.class);
+	private static final Logger logger =  LoggerFactory.getLogger(PoolWatcher.class);
 	private static PoolWatcher poolW = new PoolWatcher();
 	
 	

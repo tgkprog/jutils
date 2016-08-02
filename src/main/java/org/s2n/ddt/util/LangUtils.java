@@ -14,12 +14,13 @@ import org.apache.log4j.Appender;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.log4j.PatternLayout;
 
 
 public class LangUtils {
-	private static final Logger logger = Logger.getLogger(LangUtils.class);
+	private static final Logger logger =  LoggerFactory.getLogger(LangUtils.class);
 	private static Map<String, SimpleDateFormat> sdfFormats = new HashMap<String,SimpleDateFormat>();
 	
 	private static NumberFormat nmbrFormat = NumberFormat.getIntegerInstance ();
@@ -130,11 +131,11 @@ public class LangUtils {
 
 		if (noLog || force) {
 			System.out.println("no log4j");
-			Layout layout = new PatternLayout(" %-5p %t %d [%t][%F:%L] : %m%n");
+			/*Layout layout = new PatternLayout(" %-5p %t %d [%t][%F:%L] : %m%n");
 			Appender ap = new ConsoleAppender(layout, ConsoleAppender.SYSTEM_OUT);
 			Logger.getRootLogger().setLevel(Level.ALL);
 			// Logger.getRootLogger().addAppender(new ConsoleAppender(layout, ConsoleAppender.SYSTEM_ERR));
-			Logger.getRootLogger().addAppender(ap);
+			Logger.getRootLogger().addAppender(ap);*/
 		}
 
 	}

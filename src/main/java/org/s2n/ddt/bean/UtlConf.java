@@ -8,7 +8,8 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.util.LangUtils;
 
@@ -19,7 +20,7 @@ import org.s2n.ddt.util.LangUtils;
  * class.
  */
 public class UtlConf {
-	private static final Logger logger = Logger.getLogger(UtlConf.class);
+	private static final Logger logger =  LoggerFactory.getLogger(UtlConf.class);
 	private static final Properties mainProps = new Properties();
 	private static String appDataRoot;
 	private static String appVerifierHomeDir;

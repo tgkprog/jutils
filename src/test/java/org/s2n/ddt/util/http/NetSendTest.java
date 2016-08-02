@@ -5,7 +5,8 @@ import java.util.Map;
 
 import junit.framework.Assert;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import org.s2n.ddt.util.LangUtils;
@@ -19,7 +20,7 @@ import org.s2n.ddt.util.LangUtils;
  * 
  */
 public class NetSendTest {
-	private static final Logger logger = Logger.getLogger(NetSendTest.class);
+	private static final Logger logger =  LoggerFactory.getLogger(NetSendTest.class);
 	static{
 		LangUtils.log4Default(false);
 	}

@@ -7,10 +7,11 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HsHlp {
-	private static final Logger logger = Logger.getLogger(HsHlp.class);
+	private static final Logger logger =  LoggerFactory.getLogger(HsHlp.class);
 
 	public synchronized static SSLSocketFactory jksLoadForSsl(char[] passphrase, String certLocation) {
 		if (certLocation == null || "".equals(certLocation)){
@@ -33,7 +34,7 @@ public class HsHlp {
 			logger.debug("Done");
 			return ssLSocketFactory;
 		} catch (Exception e) {
-			logger.fatal("jksLoadForSsl:" + e, e);
+			logger.error("jksLoadForSsl:" + e, e);
 			return null;
 		}
 	}

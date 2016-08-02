@@ -17,7 +17,8 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSocketFactory;
 
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.util.Base64;
 import org.s2n.ddt.util.https.JNetSslFactoory;
@@ -33,7 +34,7 @@ import org.s2n.ddt.util.https.UtlHostNameVerifier;
  * 
  */
 public class NetSend {
-	private static final Logger logger = Logger.getLogger(NetSend.class);
+	private static final Logger logger =  LoggerFactory.getLogger(NetSend.class);
 
 	private static String contentType = "application/x-www-form-urlencoded; charset=utf-8";
 	private static JNetSslFactoory utlSsl = null;
@@ -57,7 +58,7 @@ public class NetSend {
 	public static Object sendObjects(String appObjTyp, HttpData hDat, Serializable... srlzblObjs) {
 		int options = 0;
 		if (hDat == null) {
-			logger.log(Level.WARN, "sendObj no http");
+			logger.warn( "sendObj no http");
 			return null;
 		}
 		// if(hDat.getSendType() == SendMethod.)
@@ -93,10 +94,10 @@ public class NetSend {
 			logger.warn("obj send:" + e, e);
 		} catch (ClassNotFoundException e) {
 			logger.warn("obj send:" + e, e);
-			logger.fatal("obj send srlzblObj:" + srlzblObjs);
+			logger.warn("obj send srlzblObj:" + srlzblObjs);
 		} catch (Exception e) {
 			logger.warn("obj send:" + e, e);
-			logger.fatal("obj send srlzblObj:" + srlzblObjs);
+			logger.warn("obj send srlzblObj:" + srlzblObjs);
 		}
 
 		return null;
@@ -291,7 +292,7 @@ public class NetSend {
 				}// while (looper < 110 && hDat.getReadByteCnt() > 0);
 			} while (temp != null && hDat.getReadByteCnt() > 0 );
 		} catch (ConnectException e) {
-			logger.fatal("ConnectException: " + e);
+			logger.warn("ConnectException: " + e);
 			throw e;
 		} catch (Exception e) {
 			logger.error("Error: " + e, e);

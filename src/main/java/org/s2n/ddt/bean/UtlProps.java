@@ -7,7 +7,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is used to instantiate the data source using the properties file.
@@ -15,7 +16,7 @@ import org.apache.log4j.Logger;
  * class.
  */
 public class UtlProps {
-	private static final Logger logger = Logger.getLogger(UtlProps.class);
+	private static final Logger logger =  LoggerFactory.getLogger(UtlProps.class);
 	
 	private  Properties mainProps;
 	

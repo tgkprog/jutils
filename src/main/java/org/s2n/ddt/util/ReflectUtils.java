@@ -4,10 +4,11 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReflectUtils {
-	private static final Logger logger = Logger.getLogger(ReflectUtils.class);
+	private static final Logger logger =  LoggerFactory.getLogger(ReflectUtils.class);
 
 	public static String fillMethods(Class clz, Class[] argsCLasses, Map<String, Method> methods) {
 		String rtn = null;

@@ -3,11 +3,12 @@ package org.s2n.ddt.util;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CipherUtil {
 
-	private final static Logger logger = Logger.getLogger(CipherUtil.class);
+	private final static Logger logger =  LoggerFactory.getLogger(CipherUtil.class);
 
 	/*
 	 * private static byte[] key = { 0x74, 0x68, 0x69, 0x73, 0x49, 0x73, 0x41,

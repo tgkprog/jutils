@@ -3,22 +3,22 @@ package org.s2n.ddt.util;
 import java.awt.AWTException;
 import java.awt.event.KeyEvent;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.bean.UtlConf;
 
 public class RobotHelper {
-	private static Logger logger = Logger.getLogger(RobotHelper.class);
+	private static Logger logger =  LoggerFactory.getLogger(RobotHelper.class);
 	private static java.awt.Robot robot;
 
 	static {
 		try {
-			logger.log(Level.DEBUG, "awt Robot init ");
+			logger.debug( "awt Robot init ");
 			robot = new java.awt.Robot();
-			logger.log(Level.INFO, "awt Robot created ");
+			//logger.info("awt Robot created ");
 		} catch (AWTException e) {
-			logger.log(Level.ERROR, "awt Robot not created, non window system ? " + e, e);
+			logger.error( "awt Robot not created, non window system ? " + e, e);
 
 		}
 	}
@@ -121,7 +121,7 @@ public class RobotHelper {
 			robot.keyRelease(KeyEvent.VK_ENTER);
 			Thread.sleep(5000);
 		} catch (Exception e) {
-			logger.log(Level.ERROR, "Robot sendKeys :" + e, e);
+			logger.warn("Robot sendKeys :" + e, e);
 		}
 		return 0;
 	}
@@ -135,7 +135,7 @@ public class RobotHelper {
 			robot.keyRelease(KeyEvent.VK_TAB);
 			return true;
 		} catch (Exception e) {
-			logger.log(Level.ERROR, "Robot sendKeys :" + e, e);
+			logger.warn( "Robot sendKeys :" + e, e);
 			return false;
 		}
 		

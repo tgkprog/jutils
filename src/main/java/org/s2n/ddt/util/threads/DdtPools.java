@@ -11,12 +11,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.bean.UtlConf;
 import org.s2n.ddt.util.LangUtils;
 public class DdtPools {
-	private static final Logger logger = Logger.getLogger(DdtPools.class);
+	private static final Logger logger =  LoggerFactory.getLogger(DdtPools.class);
 	
 	public static final String DEFAULT_POOL = "_d";
 	private static Map<String, ThreadPoolExecutor> pools = new HashMap<String, ThreadPoolExecutor>(1);

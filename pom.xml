@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ddt.s2n.org</groupId>
-	<artifactId>DdtUtils</artifactId>
+	<artifactId>JUtils</artifactId>
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>DdtUtils</name>
-	<url>http://maven.apache.org</url>
+	<name>JUtils</name>
+	<url>http://sel2in.com</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,7 +36,7 @@
 		<jetty-websocket.version>8.1.8.v20121106</jetty-websocket.version>
 		<jna.version>3.4.0</jna.version>
 		<json.version>20080701</json.version>
-		<log4j.version>1.2.17</log4j.version>
+		<log4j.version>2.6.2</log4j.version>
 		<nekohtml.version>1.9.17</nekohtml.version>
 		<netty.version>3.5.7.Final</netty.version>
 		<protobuf-java.version>2.4.1</protobuf-java.version>
@@ -162,11 +162,8 @@
 			<artifactId>httpmime</artifactId>
 			<version>${apache.httpcomponents.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>${apache.httpcomponents.version}</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
+			<version>${apache.httpcomponents.version}</version> </dependency> -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
@@ -208,10 +205,23 @@
 			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -293,6 +303,16 @@
 		<plugins>
 
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<!-- JAR Plugin to configure JAR generation. -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -312,6 +332,15 @@
 					</archive>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.6</version>
+			<configuration>
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+			</configuration>
+		</plugin>
 
 		</plugins>
 	</build>

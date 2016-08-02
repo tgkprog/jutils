@@ -1,13 +1,14 @@
 package org.s2n.ddt.util;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import org.s2n.ddt.util.threads.PoolOptions;
 import org.s2n.ddt.util.threads.DdtPools;
 
 public class PoolTest {
-	private static final Logger logger = Logger.getLogger(PoolTest.class);
+	private static final Logger logger =  LoggerFactory.getLogger(PoolTest.class);
 
 	@Test
 	public void test() {

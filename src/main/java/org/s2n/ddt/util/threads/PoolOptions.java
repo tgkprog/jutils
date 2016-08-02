@@ -8,6 +8,13 @@ public class PoolOptions {
 	private int coreThreads = 2;
 	private ThreadFactory factory;
 	
+	public PoolOptions (){}
+	
+	public PoolOptions (int mx, int core){
+		maxThreads = mx;
+		coreThreads = core;
+	}
+	
 	public final int getMaxThreads() {
 		return maxThreads;
 	}

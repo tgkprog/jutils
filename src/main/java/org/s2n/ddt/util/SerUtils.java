@@ -5,14 +5,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Tushar Kapila
  */
 
 public class SerUtils {
-	private static final Logger logger = Logger.getLogger(SerUtils.class);
+	private static final Logger logger =  LoggerFactory.getLogger(SerUtils.class);
 
 	public static void main(String[] args) {
 
@@ -27,7 +28,7 @@ public class SerUtils {
 			out.close();
 			return bos.toByteArray();
 		} catch (Exception e) {
-			logger.fatal("Error: " + e, e);
+			logger.warn("Error: " + e, e);
 		}
 		return null;
 	}
@@ -39,7 +40,7 @@ public class SerUtils {
 			object = in.readObject();
 			return object;
 		} catch (Exception e) {
-			logger.fatal("Error: " + e, e);
+			logger.warn("Error: " + e, e);
 		}
 		return null;
 	}

@@ -12,18 +12,19 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FileUtils {
 
-	private static Logger logger = Logger.getLogger(FileUtils.class);
+	private static Logger logger =  LoggerFactory.getLogger(FileUtils.class);
 
 	/**
 	 * Copying files
 	 */
 
 	public static void fileCopy(String inputFile, String outputFile) {
-		logger.log(Level.INFO, "in [" + inputFile + "] o [" + outputFile);
+		logger.info("in [" + inputFile + "] o [" + outputFile);
 		File in = new File(inputFile);
 		File out = new File(outputFile);
 		fileCopy(in, out);
@@ -47,9 +48,9 @@ public class FileUtils {
 			writer.close();
 
 		}catch (FileNotFoundException e) {			
-			logger.log(Level.ERROR, "err copy " + e + ", in :" + inputFile + ", out :" + outputFile + ".", e);
+			logger.error( "err copy " + e + ", in :" + inputFile + ", out :" + outputFile + ".", e);
 		}  catch (IOException e) {		
-			logger.log(Level.ERROR, "err copy " + e + ", in :" + inputFile + ", out :" + outputFile + ".", e);
+			logger.error( "err copy " + e + ", in :" + inputFile + ", out :" + outputFile + ".", e);
 		}
 	}
 

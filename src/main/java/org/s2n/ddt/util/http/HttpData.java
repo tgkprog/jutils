@@ -2,10 +2,11 @@ package org.s2n.ddt.util.http;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpData {
-	private static final Logger logger = Logger.getLogger(HttpData.class);
+	private static final Logger logger =  LoggerFactory.getLogger(HttpData.class);
 	private String url;
 	private int compreOptions;
 	private Map<String, Object> params;

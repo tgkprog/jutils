@@ -3,7 +3,8 @@ package org.s2n.ddt.util.http;
 import java.io.Serializable;
 
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.util.threads.DdtPools;
 
@@ -14,7 +15,7 @@ import org.s2n.ddt.util.threads.DdtPools;
  * Post back info helper. With fluent API. See AgentPools for usage sample
  * */
 public class PostBackAsync implements Runnable {
-	private static final Logger logger = Logger.getLogger(PostBackAsync.class);
+	private static final Logger logger =  LoggerFactory.getLogger(PostBackAsync.class);
 
 	// private List<Serializable> postBakckObjects = new ArrayList<Serializable>(1);
 	private Serializable[] postBakckObjects = null;
@@ -129,9 +130,9 @@ public class PostBackAsync implements Runnable {
 				if(logLvlOk == null){
 					logLvlOk = logLvl;
 				}
-				logger.log(logLvlOk, logMsg + " " + rtn);
+				logger.warn( logMsg + " " + rtn);
 			} else {
-				logger.log(logLvl, logMsg + " Url null, not posting back");
+				logger.warn(logMsg + " Url null, not posting back");
 			}
 		} catch (Exception e) {
 			logger.warn("logMsg :" + logMsg + ", hDat :" + hDat);

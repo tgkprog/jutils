@@ -3,14 +3,15 @@ package org.s2n.ddt.util;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import org.s2n.ddt.util.threads.PoolOptions;
 import org.s2n.ddt.util.threads.DdtPools;
 
 public class PoolInfoTest {
-	private static final Logger logger = Logger.getLogger(PoolInfoTest.class);
+	private static final Logger logger =  LoggerFactory.getLogger(PoolInfoTest.class);
 
 	@Test
 	public void test() {

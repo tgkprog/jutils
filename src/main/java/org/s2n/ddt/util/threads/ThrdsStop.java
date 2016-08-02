@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ThrdsStop {
-	private static final Logger logger = Logger.getLogger(ThrdsStop.class);
+	private static final Logger logger =  LoggerFactory.getLogger(ThrdsStop.class);
 
 	public static List<String> stopThatMatch(String thrdsName, ThreadPoolExecutor tpe){
 		

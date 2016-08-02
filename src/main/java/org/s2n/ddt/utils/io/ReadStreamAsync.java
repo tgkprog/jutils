@@ -5,13 +5,15 @@ import java.io.InputStream;
 import java.io.StringWriter;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.s2n.ddt.util.threads.DdtPools;
+import org.s2n.ddt.util.threads.PoolOptions;
 
 public class ReadStreamAsync implements Runnable{
-	private static final Logger logger = Logger.getLogger(ReadStreamAsync.class);
-	
+	private static final Logger logger =  LoggerFactory.getLogger(ReadStreamAsync.class);
+	public static final String POOL = "asyncStreams";
 	
 	private InputStream is;
 	private int logLevel;
@@ -19,6 +21,14 @@ public class ReadStreamAsync implements Runnable{
 	private String resp;
 	private boolean done;
 	private String encoding = null;
+	
+	static{		
+		DdtPools.initPool(POOL,  new PoolOptions () );
+	}
+	
+	public ReadStreamAsync(InputStream is){
+		this(is, POOL, false, 1, true, "UTF-8");		
+	}
 	
 	public ReadStreamAsync(InputStream is, String pool, boolean ownThread, int logLevel, boolean saveStr, String encoding){
 		if(is instanceof BufferedInputStream){

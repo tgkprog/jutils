@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -19,7 +20,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelAccess {
-	private static final Logger logger = Logger.getLogger(ExcelAccess.class);
+	private static final Logger logger =  LoggerFactory.getLogger(ExcelAccess.class);
 	
 	private static Workbook wb;
 
@@ -44,7 +45,7 @@ public class ExcelAccess {
 			wb = WorkbookFactory.create(inputStream);
 
 		} catch (Exception e) {
-			logger.log(Level.ERROR, "openWorkBook opening " + workbookPath
+			logger.warn("openWorkBook opening " + workbookPath
 					+ ", " + e, e);
 		} finally {
 			if (inputStream != null) {
@@ -52,7 +53,7 @@ public class ExcelAccess {
 					inputStream.close();
 
 				} catch (Exception e) {
-					logger.log(Level.ERROR, "openWorkBook Closing"
+					logger.warn("openWorkBook Closing"
 							+ workbookPath + ", " + e, e);
 
 				}
@@ -67,7 +68,7 @@ public class ExcelAccess {
 				
 			}
 		} catch (Throwable e) {
-			logger.log(Level.ERROR, "closeIfOpen " + e, e);
+			logger.warn( "closeIfOpen " + e, e);
 		}
 	}
 
