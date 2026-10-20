@@ -1,0 +1,33 @@
+# Compiled class files
+*.class
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.bak
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+docs2/
+# IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+.eclipse
+.classpath
+.project
+.settings/
+
+# macOS
+.DS_Store
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# Build outputs
+*.log
