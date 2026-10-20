@@ -28,13 +28,13 @@ This guide explains how to publish JUtils to Maven Central via Sonatype OSS Repo
 ### 1. Update Version
 Edit `pom.xml` and update the version:
 ```xml
-<version>1.0.0</version>
+<version>0.0.2</version>
 ```
 
 ### 2. Create Release Tag
 ```bash
-git tag -a v1.0.0 -m "Release version 0.0.1"
-git push origin v0.0.1
+git tag -a v0.0.2 -m "Release version 0.0.2"
+git push origin v0.0.2
 ```
 
 ### 3. Build and Sign
