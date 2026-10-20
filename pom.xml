@@ -4,7 +4,7 @@
 
     <groupId>com.sel2in</groupId>
     <artifactId>jutils</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JUtils</name>
@@ -27,12 +27,12 @@
         </developer>
     </developers>
 
-    <scm>
-        <connection>scm:git:https://github.com/tgkprog/jutils.git</connection>
-        <developerConnection>scm:git:https://github.com/tgkprog/jutils.git</developerConnection>
-        <url>https://github.com/tgkprog/jutils</url>
-      <tag>jutils-0.0.2</tag>
+  <scm>
+      <connection>scm:git:git@github.com:tgkprog/jutils.git</connection>
+      <developerConnection>scm:git:git@github.com:tgkprog/jutils.git</developerConnection>
+      <url>https://github.com/tgkprog/jutils</url>
   </scm>
+
 
     <issueManagement>
         <system>GitHub</system>
